@@ -1,0 +1,99 @@
+.banner{
+    background-image: linear-gradient(to right,#635dc0,#3027ae);
+    height: 100vmin;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner>h1{
+    margin: 5vmax;
+}
+
+.banner>a>button{
+  cursor: pointer;
+  background-color: aliceblue;
+  border: 1px snow;
+  padding: 1vmax;
+  width: 8vmax;
+}
+
+.banner>p{
+    font-size: 2vmax;
+}
+
+.banner>a>button:hover{
+    background-color: thistle;
+    color: white;
+}
+
+.banner::after{
+    content: "";
+    width: 100vw;
+    height: 100vmin;
+    background-color: white;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    max-width: 100%;
+    clip-path: polygon(100% 80%, 0% 100%, 100% 100%);
+}
+.homeHeading{
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    margin: 2vmax auto;
+    width: 80vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.productCard{
+    width: 14vmax;
+    display: flex;
+    flex-direction: column;
+    color: #070614;
+    margin: 2vmax;
+    transition: all 0.5s;
+    text-decoration: none;
+}
+
+.productCard>img{
+    width:14vmax;
+}
+
+.productCard>div{
+    margin: 0.5vmax;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.productCard>div>span{
+    margin: 0.5vmax;
+    
+}
+
+.productCard>p{
+    margin: 1vmax 0.5vmax; 
+    font-size: 1.2vmax;
+    margin-bottom: 0;
+    font-family: 'roboto';
+   color: black;
+}
+
+.productCard>span{
+    margin:0.5vmax 0.5vmax;
+    color: tomato;
+}
+
+.productCard:hover{
+
+    box-shadow: 0 0 5px black ;
+}
+
