@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import FaceIcon from '@mui/icons-material/Face';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -12,14 +13,15 @@ import "./LoginSignup.css"
 
 import {useDispatch, useSelector} from "react-redux"
 import {clearErrors,login,register} from "../../actions/userAction"
-//import { useAlert} from 'react-alert'
+import { useAlert} from 'react-alert'
 
-const LoginSignup = ({history}) => {
+const LoginSignup = () => {
    
     const dispatch=useDispatch();
-   // const alert=useAlert();
+    const alert=useAlert();
+    const navigate = useNavigate();
 
-    const {error,isAuthenticated}=useSelector((state)=>state.user);
+    const {error, isAuthenticated}=useSelector((state)=>state.user);
    
   
     const loginTab = useRef(null);
@@ -62,7 +64,7 @@ const LoginSignup = ({history}) => {
                 if (reader.readyState===2){
                     setAvatarPreview(reader.result);
                     setAvatar(reader.result);
-                }
+                }   
             };
 
             reader.readAsDataURL(e.target.files[0]);
@@ -74,11 +76,17 @@ const LoginSignup = ({history}) => {
         }
     }
 
-useEffect(()=>{
-if (isAuthenticated){
-    history.push("/account")
-}
-},[dispatch,error,history,isAuthenticated])
+    useEffect(() => {
+      if (error) {
+        alert.error(error);
+        dispatch(clearErrors());
+      }
+      if (isAuthenticated) {
+        navigate("/account");
+      }
+      
+    },
+     [dispatch, error, alert,isAuthenticated,navigate]);
 
     const switchTabs = (e, tab) => {
         if (tab === "login") {

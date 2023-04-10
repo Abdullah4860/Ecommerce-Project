@@ -7,6 +7,9 @@ import React from "react"
 import Footer from "./component/layout/Footer/Footer.js"
 import Home from "./component/Home/Home.js"
 import LoginSignup from './component/User/LoginSignup';
+import ProductDetails from './component/Product/ProductDetails.js';
+import Products from "./component/Product/Products.js"
+
 
 
 function App() {
@@ -22,7 +25,9 @@ function App() {
     <Router>
       <Header/>
       <Routes>
-        <Route  path='/' Component={Home}/>
+        <Route  path='/' Component={Home} />
+        <Route  path='/product/:id' Component={ProductDetails} />
+        <Route  path='/products' Component={Products} />
         <Route  path='/login' Component={LoginSignup}/>
       </Routes>
       <Footer/>
@@ -32,3 +37,4 @@ function App() {
 
 
 export default App;
+ 

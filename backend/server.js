@@ -1,6 +1,7 @@
 const app=require('./app.js')
 
 const dotenv=require('dotenv')
+const cloudinary=require('cloudinary')
 const mongoose=require('mongoose')
 
 const connectDatabase=require('./config/database.js')
@@ -21,6 +22,11 @@ mongoose.set("strictQuery", true);
 connectDatabase()
 
 
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+  });
 
 
 

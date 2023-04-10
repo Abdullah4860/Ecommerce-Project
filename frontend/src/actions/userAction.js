@@ -18,7 +18,7 @@ import {LOGIN_REQUEST,
             const config={headers:{"Content-Type":"application/json"}};
 
             const {data} = await axios.post(
-              `/api/v1/login`,  
+              `http://localhost:4000/api/v1/login`,  
               {email,password},
               config
             );
@@ -38,7 +38,7 @@ import {LOGIN_REQUEST,
 
             const config={headers:{"Content-Type":"multipart/form-data"}};
             const {data} = await axios.post(
-                `/api/v1/register`,  
+                `http://localhost:4000/api/v1/register`,  
                 userData,
                 config
               );
